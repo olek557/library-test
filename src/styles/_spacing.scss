@@ -1,0 +1,25 @@
+$max: 50;
+$offset: 5;
+$unit: "px";
+@mixin generate-utility-classes($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+
+// Margins
+@include generate-utility-classes(".m-t-", "margin-top");
+@include generate-utility-classes(".m-r-", "margin-right");
+@include generate-utility-classes(".m-b-", "margin-bottom");
+@include generate-utility-classes(".m-l-", "margin-left");
+@include generate-utility-classes(".m-x-", "margin");
+// Paddings
+@include generate-utility-classes(".p-t-", "padding-top");
+@include generate-utility-classes(".p-r-", "padding-right");
+@include generate-utility-classes(".p-b-", "padding-bottom");
+@include generate-utility-classes(".p-l-", "padding-left");
+@include generate-utility-classes(".p-x-", "padding");

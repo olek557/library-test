@@ -1,0 +1,42 @@
+<div [@filterAnimation]="totalCount">
+  @for (book of books; track $index) {
+  <mat-card class="card" appearance="outlined" (click)="showBookDetails(book)">
+    <div class="book-cover">
+      @if (book.coverImageUrl) {
+      <img [src]="book.coverImageUrl" />
+      } @else {
+      <div class="book-placeholder">
+        <mat-icon>menu_book</mat-icon>
+      </div>
+      }
+    </div>
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ book.title }}</mat-card-title>
+        <mat-card-subtitle>
+          <div>by: {{ book.author }}</div>
+          <i>{{ book.publicationYear }}</i>
+        </mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <button
+      class="card__actions"
+      mat-icon-button
+      [matMenuTriggerFor]="cardActions"
+      (click)="$event.stopPropagation()"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-card>
+  <mat-menu #cardActions="matMenu">
+    <button mat-menu-item (click)="editBook(book)">
+      <mat-icon>edit</mat-icon>
+      <span>Edit</span>
+    </button>
+    <button mat-menu-item (click)="deleteBook(book)" color="warn">
+      <mat-icon>delete</mat-icon>
+      <span>Delete</span>
+    </button>
+  </mat-menu>
+  }
+</div>

@@ -1,0 +1,8 @@
+<mat-form-field class="search-field" appearance="outline">
+  <input
+    matInput
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="onSearchChange()"
+    placeholder="Seach book by author or title"
+  />
+</mat-form-field>

@@ -1,0 +1,41 @@
+.book__form {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.book__cover {
+  max-width: 100%;
+  display: block;
+}
+
+.book__placeholder {
+  width: 260px;
+  height: 260px;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book__upload {
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px dashed transparent;
+  border-radius: 5px;
+  display: block;
+  align-self: flex-start;
+  &:hover {
+    border: 1px dashed var(--color-primary);
+    background-color: var(--color-primary-background);
+    border-radius: 5px;
+  }
+}
+
+.book__upload--empty {
+  border: 1px dashed #ccc;
+  max-height: 300px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

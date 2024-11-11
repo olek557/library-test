@@ -1,0 +1,23 @@
+html,
+body {
+  height: 100%;
+  * {
+    box-sizing: border-box;
+  }
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+:root{
+  --color-primary-background: #ffd9e1;
+  --color-primary: #ba005c;
+}

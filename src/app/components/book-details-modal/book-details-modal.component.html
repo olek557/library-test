@@ -1,0 +1,23 @@
+<button mat-icon-button class="close-modal-button" (click)="close()">
+  <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+  <div class="d-flex">
+    <img class="book-cover" [src]="book.coverImageUrl" [alt]="book.title" />
+    <div class="book-details">
+      <h4>{{ book.title }}</h4>
+      <p>{{ book.publicationYear }}</p>
+      <p>by: {{ book.author }}</p>
+      <p>{{ book.description }}</p>
+      @if(book.genre) {
+      <mat-chip-set>
+        <mat-chip> {{ book.genre }} </mat-chip>
+      </mat-chip-set>
+      }
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="edit()">Edit</button>
+  <button mat-button (click)="remove()">Remove</button>
+</mat-dialog-actions>

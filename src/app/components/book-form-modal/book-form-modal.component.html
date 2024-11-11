@@ -1,0 +1,56 @@
+<mat-dialog-content>
+  <div [formGroup]="form" class="d-flex">
+    <div
+      class="book__upload"
+      (click)="coverUpload.click()"
+      [class.book__upload--empty]="!form.value.coverImageUrl"
+    >
+      <input
+        type="file"
+        (change)="uploadCoverImage($event)"
+        accept="image/*"
+        hidden
+        #coverUpload
+      />
+      @if(form.value.coverImageUrl) {
+      <img class="book__cover" [src]="form.value.coverImageUrl" />
+      } @else {
+      <div class="book__placeholder">
+        <mat-icon>menu_book</mat-icon>
+      </div>
+      }
+    </div>
+    <div class="book__form">
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" />
+        @if (form.get('title')?.hasError('required')) {
+        <mat-error>Title is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Author</mat-label>
+        <input matInput formControlName="author" />
+        @if (form.get('author')?.hasError('required')) {
+        <mat-error>Author is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Publication Year</mat-label>
+        <input matInput formControlName="publicationYear" type="number" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Genre</mat-label>
+        <input matInput formControlName="genre" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="save()">Save</button>
+</mat-dialog-actions>

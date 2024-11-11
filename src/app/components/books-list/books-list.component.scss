@@ -1,0 +1,59 @@
+@use "@angular/material" as mat;
+
+:host > div {
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.card {
+  cursor: pointer;
+  min-height: 100px;
+  padding-left: 110px;
+  overflow: hidden;
+  transition: all 0.3s;
+  position: relative;
+  &:hover {
+    @include mat.elevation(2);
+    background-color: var(--color-primary-background);
+  }
+}
+
+.card__actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.mat-mdc-card-title-group {
+  display: block;
+  .mat-mdc-card-title,
+  .mat-mdc-card-subtitle > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.book-cover {
+  width: 100px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.book-placeholder {
+  width: 100%;
+  height: 100%;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

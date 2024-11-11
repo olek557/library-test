@@ -1,0 +1,6 @@
+<div class="container p-t-20">
+  <app-search (search)="search($event)"></app-search>
+  @if(filteredBooks()) {
+  <app-books-list [books]="filteredBooks()" [totalCount]="totalCount" />
+  }
+</div>
